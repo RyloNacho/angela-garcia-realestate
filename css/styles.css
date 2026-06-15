@@ -253,19 +253,22 @@ body.menu-open {
 .nav-menu-overlay {
     display: none;
     position: fixed;
-    top: 60px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 999;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 998;
     opacity: 0;
-    transition: opacity 0.35s ease-in-out;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
 }
 
 .nav-menu-overlay.active {
     display: block;
     opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
 }
 
 /* ============================================
@@ -485,14 +488,14 @@ body.menu-open {
    ============================================ */
 
 .realtor-intro {
-    padding: 7rem 2rem;
+    padding: 3rem 1.5rem;
     background-color: var(--white);
 }
 
 .intro-grid {
     display: grid;
-    grid-template-columns: 55% 1fr;
-    gap: 5rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
     align-items: center;
 }
 
@@ -524,20 +527,20 @@ body.menu-open {
    ============================================ */
 
 .featured-listings {
-    padding: 7rem 2rem;
-    background-color: var(--off-white);
+    padding: 3rem 1.5rem;
+    background-color: var(--white);
 }
 
 .featured-listings h2 {
     text-align: left;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
 }
 
 .listings-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 4rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .listing-card {
@@ -557,9 +560,13 @@ body.menu-open {
 .listing-image {
     width: 100%;
     height: 280px;
-    background-color: var(--medium-gray);
+    background: linear-gradient(135deg, var(--accent-blue) 0%, rgba(30, 58, 138, 0.7) 100%);
     overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
 }
 
 .listing-image img {
@@ -608,14 +615,14 @@ body.menu-open {
    ============================================ */
 
 .buy-or-sell {
-    padding: 7rem 2rem;
+    padding: 3rem 1.5rem;
     background-color: var(--white);
 }
 
 .two-column-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     margin-top: 3rem;
 }
 
@@ -624,7 +631,7 @@ body.menu-open {
     border: none;
     border-left: 3px solid var(--accent-blue);
     border-radius: 4px;
-    background-color: var(--off-white);
+    background-color: var(--white);
     transition: var(--transition);
     text-align: left;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -649,8 +656,8 @@ body.menu-open {
    ============================================ */
 
 .communities {
-    padding: 7rem 2rem;
-    background-color: var(--off-white);
+    padding: 3rem 1.5rem;
+    background-color: var(--white);
 }
 
 .communities h2 {
@@ -659,7 +666,7 @@ body.menu-open {
 
 .communities-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 4rem;
 }
@@ -725,7 +732,7 @@ body.menu-open {
    ============================================ */
 
 .why-work {
-    padding: 7rem 2rem;
+    padding: 3rem 1.5rem;
     background-color: var(--white);
 }
 
@@ -735,7 +742,7 @@ body.menu-open {
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -767,8 +774,8 @@ body.menu-open {
    ============================================ */
 
 .testimonials {
-    padding: 7rem 2rem;
-    background-color: var(--off-white);
+    padding: 3rem 1.5rem;
+    background-color: var(--white);
 }
 
 .testimonials h2 {
@@ -777,7 +784,7 @@ body.menu-open {
 
 .testimonials-carousel {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2.5rem;
     margin-top: 3rem;
 }
@@ -819,7 +826,7 @@ body.menu-open {
    ============================================ */
 
 .market-insights {
-    padding: 7rem 2rem;
+    padding: 3rem 1.5rem;
     background-color: var(--white);
 }
 
@@ -829,7 +836,7 @@ body.menu-open {
 
 .insights-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -838,7 +845,7 @@ body.menu-open {
     text-align: center;
     padding: 3rem 2rem;
     border-radius: 0;
-    background-color: var(--off-white);
+    background-color: var(--white);
     border-bottom: 3px solid var(--accent-blue);
     transition: var(--transition);
 }
@@ -907,7 +914,7 @@ body.menu-open {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 3rem;
     margin-bottom: 3rem;
 }
@@ -963,19 +970,19 @@ body.menu-open {
     }
 
     .listings-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .communities-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .insights-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .nav-menu {
@@ -1072,7 +1079,7 @@ body.menu-open {
     }
 
     .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
 
@@ -1098,24 +1105,24 @@ body.menu-open {
 
     .nav-menu {
         position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
+        top: 0;
+        left: -100%;
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
         background-color: var(--white);
         flex-direction: column;
         list-style: none;
-        padding: 0;
+        padding: 5rem 0 0 0;
         gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
         z-index: 999;
     }
 
     .nav-menu.active {
-        max-height: 500px;
+        left: 0;
     }
 
     .nav-menu li {
@@ -1123,8 +1130,8 @@ body.menu-open {
         padding: 0;
         margin: 0;
         opacity: 0;
-        transform: translateY(-8px);
-        animation: slideInDown 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        transform: translateX(-20px);
+        animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
 
     .nav-menu.active li:nth-child(1) { animation-delay: 0.05s; }
@@ -1158,14 +1165,14 @@ body.menu-open {
         display: none;
     }
 
-    @keyframes slideInDown {
+    @keyframes slideInLeft {
         from {
             opacity: 0;
-            transform: translateY(-12px);
+            transform: translateX(-20px);
         }
         to {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
     }
 
