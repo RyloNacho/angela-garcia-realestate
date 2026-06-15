@@ -20,7 +20,8 @@
             <h1>ANGELA GARCIA</h1>
             <p class="logo-subtitle">LONG ISLAND REAL ESTATE</p>
         </a>
-        <ul class="nav-menu" id="navMenu">
+        <!-- Desktop Menu -->
+        <ul class="nav-menu">
             <li><a href="#home">Home</a></li>
             <li><a href="search.html">Search Homes</a></li>
             <li><a href="buyers.html">Buyers</a></li>
@@ -29,8 +30,8 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <!-- HAMBURGER MENU -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -38,8 +39,23 @@
     </div>
 </nav>
 
-<!-- MENU OVERLAY -->
-<div class="nav-menu-overlay" id="navOverlay"></div>
+<!-- Mobile Menu Backdrop -->
+<div class="mobile-nav-backdrop"></div>
+
+<!-- Mobile Menu Drawer -->
+<div class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+        <a href="index.html" class="mobile-logo">ANGELA GARCIA</a>
+        <button class="mobile-menu-close" aria-label="Close navigation menu">×</button>
+    </div>
+    <a href="#home">Home</a>
+    <a href="search.html">Search Homes</a>
+    <a href="buyers.html">Buyers</a>
+    <a href="sellers.html">Sellers</a>
+    <a href="communities.html">Communities</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
 
 <!-- HERO SECTION -->
 <section class="hero" id="home">
@@ -294,60 +310,32 @@
 </footer>
 
 <script>
-// Mobile Menu Toggle with Scroll Lock
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-const navOverlay = document.getElementById('navOverlay');
-const body = document.body;
+// Mobile Navigation
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".mobile-menu-toggle");
+    const close = document.querySelector(".mobile-menu-close");
+    const backdrop = document.querySelector(".mobile-nav-backdrop");
+    const links = document.querySelectorAll(".mobile-nav-drawer a");
 
-function toggleMenu() {
-    const isActive = navMenu.classList.contains('active');
-    
-    if (!isActive) {
-        // Open menu
-        navMenu.classList.add('active');
-        hamburger.classList.add('active');
-        if (navOverlay) navOverlay.classList.add('active');
-        body.classList.add('menu-open');
-        body.style.overflow = 'hidden';
-    } else {
-        // Close menu
-        closeMenu();
-    }
-}
+    const openMenu = () => {
+        document.body.classList.add("mobile-nav-open");
+        toggle?.setAttribute("aria-expanded", "true");
+    };
 
-function closeMenu() {
-    navMenu.classList.remove('active');
-    hamburger.classList.remove('active');
-    if (navOverlay) navOverlay.classList.remove('active');
-    body.classList.remove('menu-open');
-    body.style.overflow = '';
-}
+    const closeMenu = () => {
+        document.body.classList.remove("mobile-nav-open");
+        toggle?.setAttribute("aria-expanded", "false");
+    };
 
-if (hamburger) {
-    hamburger.addEventListener('click', toggleMenu);
+    toggle?.addEventListener("click", openMenu);
+    close?.addEventListener("click", closeMenu);
+    backdrop?.addEventListener("click", closeMenu);
+    links.forEach((link) => link.addEventListener("click", closeMenu));
 
-    // Close menu when a link is clicked
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Don't close immediately for hash links (allow them to navigate)
-            closeMenu();
-        });
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) closeMenu();
     });
-    
-    // Close menu on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            closeMenu();
-        }
-    });
-
-    // Close menu when overlay is clicked
-    if (navOverlay) {
-        navOverlay.addEventListener('click', closeMenu);
-    }
-}
+});
 </script>
 <script src="js/idx-framework.js"></script>
 <script src="js/main.js"></script>
