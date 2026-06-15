@@ -82,7 +82,7 @@
 <section class="featured-listings">
     <div class="container">
         <h2>Featured Properties</h2>
-        <p class="section-subtitle">Carefully selected homes representing the finest Long Island offers</p>
+        <p class="section-subtitle">Carefully selected homes representing the finest Long Island has to offer</p>
         
         <div class="listings-grid" id="featuredListings">
             <!-- IDX listings populated here -->
@@ -291,23 +291,50 @@
 </footer>
 
 <script>
-// Mobile Menu Toggle
+// Mobile Menu Toggle with Scroll Lock
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const body = document.body;
+
+function toggleMenu() {
+    const isActive = navMenu.classList.contains('active');
+    
+    if (!isActive) {
+        // Open menu
+        navMenu.classList.add('active');
+        hamburger.classList.add('active');
+        body.classList.add('menu-open');
+        body.style.overflow = 'hidden';
+    } else {
+        // Close menu
+        closeMenu();
+    }
+}
+
+function closeMenu() {
+    navMenu.classList.remove('active');
+    hamburger.classList.remove('active');
+    body.classList.remove('menu-open');
+    body.style.overflow = '';
+}
 
 if (hamburger) {
-    hamburger.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
+    hamburger.addEventListener('click', toggleMenu);
 
     // Close menu when a link is clicked
     const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
+        link.addEventListener('click', function(e) {
+            // Don't close immediately for hash links (allow them to navigate)
+            closeMenu();
         });
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
     });
 }
 </script>
