@@ -986,8 +986,7 @@ body.menu-open {
     }
 
     .hero-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
+        gap: 1rem;
     }
 
     .hero-search-bar {
@@ -1252,13 +1251,12 @@ body.menu-open {
     }
 
     .btn {
-        padding: 1.2rem 1.5rem;
-        font-size: 0.95rem;
-        min-height: 52px;
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
         border-radius: 4px;
         letter-spacing: 0.3px;
     }
@@ -1268,13 +1266,13 @@ body.menu-open {
     }
 
     .hero-buttons {
-        flex-direction: column;
         gap: 0.8rem;
         margin-top: 2rem;
     }
 
     .hero-buttons .btn {
-        width: 100%;
+        flex: 1;
+        min-width: 120px;
     }
 }
 /* Cache bust 1781561264 */
