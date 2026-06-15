@@ -16,6 +16,7 @@
     --medium-gray: #6d6d6d;
     --dark-gray: #333333;
     --accent-blue: #1e3a8a;
+    --accent-gold: #1e3a8a;
     
     --font-display: 'Playfair Display', serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -67,6 +68,16 @@ h2 {
 h3 {
     font-size: 1.4rem;
     font-weight: 400;
+    color: var(--charcoal);
+}
+
+/* Dark background headings */
+.about-hero h1,
+.about-hero h2,
+.guide-hero h1,
+.guide-hero h2,
+.cta-section h2 {
+    color: var(--white);
 }
 
 p {
@@ -74,6 +85,14 @@ p {
     color: var(--dark-gray);
     line-height: 1.75;
     font-weight: 300;
+}
+
+/* Dark background text */
+.about-hero p,
+.guide-hero p,
+.cta-section p,
+.hero-subheadline {
+    color: var(--white);
 }
 
 .section-subtitle {
@@ -123,11 +142,22 @@ section {
     align-items: center;
 }
 
+.logo {
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
 .logo h1 {
     font-size: 1.1rem;
     letter-spacing: 2px;
     font-weight: 500;
     margin-bottom: 0;
+    color: var(--charcoal);
 }
 
 .logo-subtitle {
@@ -153,6 +183,7 @@ section {
     font-weight: 400;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
     position: relative;
+    display: block;
 }
 
 .nav-menu a::after {
