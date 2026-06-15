@@ -38,6 +38,9 @@
     </div>
 </nav>
 
+<!-- MENU OVERLAY -->
+<div class="nav-menu-overlay" id="navOverlay"></div>
+
 <!-- HERO SECTION -->
 <section class="hero" id="home">
     <video autoplay muted loop playsinline class="hero-video">
@@ -294,6 +297,7 @@
 // Mobile Menu Toggle with Scroll Lock
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const navOverlay = document.getElementById('navOverlay');
 const body = document.body;
 
 function toggleMenu() {
@@ -303,6 +307,7 @@ function toggleMenu() {
         // Open menu
         navMenu.classList.add('active');
         hamburger.classList.add('active');
+        if (navOverlay) navOverlay.classList.add('active');
         body.classList.add('menu-open');
         body.style.overflow = 'hidden';
     } else {
@@ -314,6 +319,7 @@ function toggleMenu() {
 function closeMenu() {
     navMenu.classList.remove('active');
     hamburger.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
     body.classList.remove('menu-open');
     body.style.overflow = '';
 }
@@ -336,6 +342,11 @@ if (hamburger) {
             closeMenu();
         }
     });
+
+    // Close menu when overlay is clicked
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMenu);
+    }
 }
 </script>
 <script src="js/idx-framework.js"></script>
