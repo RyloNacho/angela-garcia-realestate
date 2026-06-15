@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Guide | Angela Garcia Real Estate | Long Island</title>
+    <meta name="description" content="Home selling guide for Long Island. Professional staging, marketing strategy, and pricing advice for Nassau & Suffolk County homes.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(26,26,26,0.7));
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .guide-hero h1 {
+            color: white;
+        }
+
+        .valuation-section {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .valuation-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: #153063;
+        }
+
+        .selling-process {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            opacity: 0.6;
+            transition: opacity 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+        }
+
+        .process-step.active {
+            opacity: 1;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            border: 3px solid var(--accent-blue);
+            border-radius: 50%;
+            color: var(--accent-blue);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 0 0 0 var(--accent-blue);
+        }
+
+        .process-step.active .step-number {
+            background-color: var(--accent-blue);
+            color: white;
+            box-shadow: 0 0 0 8px rgba(30, 58, 138, 0.15), 
+                        0 0 20px rgba(30, 58, 138, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.3);
+            animation: stepGlow 0.8s ease-out;
+        }
+
+        @keyframes stepGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(30, 58, 138, 0), 
+                            0 0 25px rgba(30, 58, 138, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 0 8px rgba(30, 58, 138, 0.15), 
+                            0 0 20px rgba(30, 58, 138, 0.5),
+                            inset 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .process-step h3 {
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .process-step p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        .marketing-section {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .marketing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .marketing-card {
+            border: 1px solid #e0e0e0;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .marketing-card:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .marketing-card h3 {
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .marketing-card ul {
+            list-style: none;
+            color: var(--medium-gray);
+        }
+
+        .marketing-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .marketing-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .pricing-section {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .pricing-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .tip-card h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-card p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,26,26,0.9));
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <h1>ANGELA GARCIA</h1>
+            <p class="logo-subtitle">LONG ISLAND REAL ESTATE</p>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search Homes</a></li>
+            <li><a href="buyers.html">Buyers</a></li>
+            <li><a href="sellers.html">Sellers</a></li>
+            <li><a href="communities.html">Communities</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- HAMBURGER MENU -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="guide-hero">
+    <div class="container">
+        <h1>Seller's Guide</h1>
+        <p>Maximize your home's value with expert marketing and strategic pricing</p>
+    </div>
+</section>
+
+<!-- HOME VALUATION -->
+<section class="valuation-section">
+    <div class="container">
+        <h2>Get Your Home Valued</h2>
+        <p class="section-subtitle">Understand your home's market value</p>
+
+        <form class="valuation-form" id="valuationForm">
+            <div class="form-group">
+                <label for="address">Property Address</label>
+                <input type="text" id="address" name="address" placeholder="Street address" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="City" required>
+            </div>
+            <div class="form-group">
+                <label for="beds">Bedrooms</label>
+                <input type="number" id="beds" name="beds" min="1" placeholder="Number of bedrooms" required>
+            </div>
+            <div class="form-group">
+                <label for="baths">Bathrooms</label>
+                <input type="number" id="baths" name="baths" min="1" placeholder="Number of bathrooms" required>
+            </div>
+            <div class="form-group">
+                <label for="sqft">Square Footage</label>
+                <input type="number" id="sqft" name="sqft" placeholder="Total square feet" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year Built</label>
+                <input type="number" id="year" name="year" placeholder="Year constructed" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Additional Notes</label>
+                <textarea id="message" name="message" placeholder="Any upgrades, special features, etc." rows="3"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Get Estimate</button>
+        </form>
+    </div>
+</section>
+
+<!-- SELLING PROCESS -->
+<section class="selling-process">
+    <div class="container">
+        <h2>The Selling Process</h2>
+        <p class="section-subtitle">5 steps to a successful sale</p>
+
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Market Analysis</h3>
+                <p>We analyze comparable sales, market trends, and your home's unique features to determine optimal pricing.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Professional Marketing</h3>
+                <p>Professional photography, video tours, and multi-channel marketing get your home in front of serious buyers.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Qualified Showings</h3>
+                <p>We qualify and schedule showings with pre-approved buyers and other agents, maximizing buyer interest.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Negotiate Offers</h3>
+                <p>When offers come in, Angela negotiates terms to maximize your net proceeds and protect your interests.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h3>Closing</h3>
+                <p>We coordinate inspections, appraisals, and closing documents to ensure a smooth transaction from start to finish.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MARKETING STRATEGY -->
+<section class="marketing-section">
+    <div class="container">
+        <h2>Our Marketing Strategy</h2>
+        <p class="section-subtitle">Comprehensive approach to sell faster and for more</p>
+
+        <div class="marketing-grid">
+            <div class="marketing-card">
+                <h3>Professional Photography</h3>
+                <ul>
+                    <li>High-resolution interior & exterior photos</li>
+                    <li>Professional lighting and composition</li>
+                    <li>Drone photography (when applicable)</li>
+                    <li>Virtual staging options</li>
+                </ul>
+            </div>
+
+            <div class="marketing-card">
+                <h3>Video Tours</h3>
+                <ul>
+                    <li>Cinematic video walkthrough</li>
+                    <li>Highlights key features and flow</li>
+                    <li>Shared on MLS and social media</li>
+                    <li>Reaches buyers unable to tour in-person</li>
+                </ul>
+            </div>
+
+            <div class="marketing-card">
+                <h3>Digital Marketing</h3>
+                <ul>
+                    <li>MLS exposure to all agents</li>
+                    <li>Zillow, Trulia, and major portals</li>
+                    <li>Social media marketing campaigns</li>
+                    <li>Email marketing to buyer list</li>
+                </ul>
+            </div>
+
+            <div class="marketing-card">
+                <h3>Traditional Marketing</h3>
+                <ul>
+                    <li>Yard signs and directional signage</li>
+                    <li>Open house events</li>
+                    <li>Printed brochures</li>
+                    <li>Neighborhood postcards</li>
+                </ul>
+            </div>
+
+            <div class="marketing-card">
+                <h3>Agent Outreach</h3>
+                <ul>
+                    <li>Broker open houses</li>
+                    <li>Agent preview events</li>
+                    <li>Direct outreach to buyer's agents</li>
+                    <li>Pocket listings to qualified buyers</li>
+                </ul>
+            </div>
+
+            <div class="marketing-card">
+                <h3>Home Staging</h3>
+                <ul>
+                    <li>Staging recommendations</li>
+                    <li>Curb appeal enhancement</li>
+                    <li>Decluttering and organization tips</li>
+                    <li>Professional staging assistance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING STRATEGY -->
+<section class="pricing-section">
+    <div class="container pricing-content">
+        <h2>Pricing Strategy</h2>
+        <p class="section-subtitle">Strategic pricing maximizes buyer interest and your net proceeds</p>
+
+        <div class="pricing-tips">
+            <div class="tip-card">
+                <h4>🎯 Competitive Analysis</h4>
+                <p>We compare your home to recently sold properties and active listings to determine the optimal price for your market and property condition.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>📊 Market Timing</h4>
+                <p>Pricing at the right time is critical. Too high and you'll limit showings. Too low and you leave money on the table. We get it right.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>💡 Perception Premium</h4>
+                <p>Strategic pricing just below psychological price points (e.g., $849,999 vs $850,000) attracts more qualified buyers while suggesting value.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>⚡ Days on Market</h4>
+                <p>Homes priced right sell faster. Homes sitting on market longer are seen as stale. Quick sale = more buyer confidence and usually better final price.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>🏆 Negotiation Room</h4>
+                <p>Proper pricing strategy leaves room to negotiate with buyers while still exceeding your financial goals and timeline.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>📈 Market Conditions</h4>
+                <p>Buyer's market? Seller's market? We adjust strategy based on current conditions to position your home for maximum success.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Sell?</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem;">Schedule a consultation to discuss your home and selling strategy.</p>
+        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search Homes</a></li>
+                    <li><a href="sellers.html">Sellers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: (516) 555-0123</p>
+                <p>Email: angela@angelagarciarealtor.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angela Garcia Real Estate. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.getElementById('valuationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you! Angela will review your property and send an estimate soon.');
+    this.reset();
+});
+
+// Intersection Observer for animated process steps
+function initializeProcessAnimations() {
+    const processSteps = document.querySelectorAll('.process-step');
+    console.log('Found process steps:', processSteps.length);
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            console.log('Step visibility changed:', entry.isIntersecting);
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                console.log('Added active class');
+            }
+        });
+    }, observerOptions);
+    
+    processSteps.forEach(step => {
+        // Start with inactive state
+        step.classList.remove('active');
+        observer.observe(step);
+    });
+}
+
+// Run on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeProcessAnimations);
+} else {
+    initializeProcessAnimations();
+}
+
+// Mobile Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburger) {
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+}
+</script>
+
+</body>
+</html>

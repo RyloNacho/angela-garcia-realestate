@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Angela Garcia | Long Island Real Estate</title>
+    <meta name="description" content="Meet Angela Garcia, a top Long Island realtor with 15+ years of expertise serving Nassau and Suffolk County families.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(26,26,26,0.7));
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .about-hero h1 {
+            color: white;
+        }
+
+        .about-intro {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            line-height: 1.9;
+        }
+
+        .credentials {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .credential-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .credential-card h3 {
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .credential-card p {
+            color: var(--medium-gray);
+        }
+
+        .service-areas {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .area-badge {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--accent-gold);
+            transition: var(--transition);
+        }
+
+        .area-badge:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .area-badge h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .values {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .value-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--medium-gray);
+        }
+
+        .testimonials {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .cta-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,26,26,0.9));
+            color: white;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <h1>ANGELA GARCIA</h1>
+            <p class="logo-subtitle">LONG ISLAND REAL ESTATE</p>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search Homes</a></li>
+            <li><a href="buyers.html">Buyers</a></li>
+            <li><a href="sellers.html">Sellers</a></li>
+            <li><a href="communities.html">Communities</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+    <div class="container">
+        <h1>About Angela Garcia</h1>
+        <p>Dedicated to helping Long Island families achieve their real estate dreams</p>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="about-intro">
+    <div class="container">
+        <div class="intro-grid">
+            <div class="about-image">
+                <img src="media/angela-headshot.jpg" alt="Angela Garcia - Real Estate Agent" style="width: 100%; height: auto;">
+            </div>
+            <div class="about-content">
+                <h2>Who I Am</h2>
+                <p>With over 15 years of experience in Long Island real estate, I've developed a deep understanding of the Nassau and Suffolk County markets. I've helped hundreds of families buy, sell, and invest in properties they love.</p>
+                <p>My approach is simple: put your goals first. Whether you're a first-time buyer, a growing family, or an experienced investor, I listen, advise, and execute with precision and transparency.</p>
+                <p>I believe real estate transactions should feel personal, not transactional. That's why I treat every client like family and stay available throughout the entire process.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+    <div class="container">
+        <h2>Credentials & Achievements</h2>
+
+        <div class="credentials-grid">
+            <div class="credential-card">
+                <h3>15+</h3>
+                <p>Years of Real Estate Experience</p>
+            </div>
+            <div class="credential-card">
+                <h3>500+</h3>
+                <p>Successful Transactions</p>
+            </div>
+            <div class="credential-card">
+                <h3>$125M+</h3>
+                <p>In Total Sales Volume</p>
+            </div>
+            <div class="credential-card">
+                <h3>98%</h3>
+                <p>Client Satisfaction Rate</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="service-areas">
+    <div class="container">
+        <h2>Service Areas</h2>
+        <p class="section-subtitle">I specialize in Nassau County and Suffolk County communities</p>
+
+        <div class="areas-grid">
+            <div class="area-badge">
+                <h4>Huntington</h4>
+                <p>Upscale waterfront community</p>
+            </div>
+            <div class="area-badge">
+                <h4>Northport</h4>
+                <p>Charming village atmosphere</p>
+            </div>
+            <div class="area-badge">
+                <h4>Smithtown</h4>
+                <p>Established neighborhoods</p>
+            </div>
+            <div class="area-badge">
+                <h4>Babylon</h4>
+                <p>Waterfront charm</p>
+            </div>
+            <div class="area-badge">
+                <h4>Islip</h4>
+                <p>Coastal luxury</p>
+            </div>
+            <div class="area-badge">
+                <h4>Patchogue</h4>
+                <p>Modern community</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+    <div class="container">
+        <h2>My Core Values</h2>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>🤝 Integrity</h3>
+                <p>Transparency and honesty in every transaction. You deserve to know everything about a property and the market.</p>
+            </div>
+            <div class="value-card">
+                <h3>🎯 Results</h3>
+                <p>Strategic marketing, skilled negotiation, and dedicated execution. Your success is my success.</p>
+            </div>
+            <div class="value-card">
+                <h3>⏰ Availability</h3>
+                <p>You shouldn't wonder when your agent will respond. I'm available when you need me.</p>
+            </div>
+            <div class="value-card">
+                <h3>📚 Expertise</h3>
+                <p>Deep market knowledge, negotiation mastery, and problem-solving skills honed over 15+ years.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+    <div class="container">
+        <h2>What Clients Say</h2>
+        <p class="section-subtitle">Hear from families I've helped</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Angela made the entire process stress-free. She explained everything clearly and always had our best interests in mind. Highly recommended!"</p>
+                <p class="testimonial-author">— Sarah & Michael K., Huntington</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"As first-time buyers, we were nervous. Angela's expertise and patience made us confident. She found us the perfect home at the right price."</p>
+                <p class="testimonial-author">— David & Lisa T., Northport</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Angela's negotiation skills saved us thousands. She knows the market inside and out. We trust her completely."</p>
+                <p class="testimonial-author">— James R., Smithtown</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Professional, responsive, and genuinely cares about her clients. Angela went above and beyond for us. Thank you!"</p>
+                <p class="testimonial-author">— Jennifer M., Babylon</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Selling a home can be stressful, but Angela made it easy. Great marketing, quick sale, and fair pricing. Perfect experience."</p>
+                <p class="testimonial-author">— Tom & Amy G., Islip</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Angela's market expertise is unmatched. She helped us find a home we didn't even know existed. So grateful!"</p>
+                <p class="testimonial-author">— Patricia H., Patchogue</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Work Together?</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem;">Let's discuss your real estate goals and find the right strategy for you.</p>
+        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search Homes</a></li>
+                    <li><a href="buyers.html">Buyers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: (516) 555-0123</p>
+                <p>Email: angela@angelagarciarealtor.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angela Garcia Real Estate. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

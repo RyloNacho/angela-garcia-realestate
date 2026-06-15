@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Guide | Angela Garcia Real Estate | Long Island</title>
+    <meta name="description" content="Complete guide for buying a home on Long Island. Learn the process, get pre-approved, and find your dream home.">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(26,26,26,0.7));
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .guide-hero h1 {
+            color: white;
+        }
+
+        .process-timeline {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-blue), transparent);
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            opacity: 0.6;
+            transition: opacity 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .timeline-item.active {
+            opacity: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+            width: 48%;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            width: 48%;
+            text-align: left;
+            padding-left: 3rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 28px;
+            background-color: white;
+            border: 3px solid var(--accent-blue);
+            border-radius: 50%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 0 0 0 var(--accent-blue);
+        }
+
+        .timeline-marker::after {
+            content: '✓';
+            color: var(--accent-blue);
+            font-size: 16px;
+            font-weight: bold;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .timeline-item.active .timeline-marker {
+            background-color: var(--accent-blue);
+            box-shadow: 0 0 0 8px rgba(30, 58, 138, 0.15), 
+                        0 0 20px rgba(30, 58, 138, 0.5),
+                        inset 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-item.active .timeline-marker::after {
+            opacity: 1;
+            color: white;
+            transform: scale(1);
+        }
+
+        @keyframes checkGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(30, 58, 138, 0), 
+                            0 0 25px rgba(30, 58, 138, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 0 8px rgba(30, 58, 138, 0.15), 
+                            0 0 20px rgba(30, 58, 138, 0.5),
+                            inset 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .timeline-item.active .timeline-marker {
+            animation: checkGlow 0.8s ease-out;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .timeline-content p {
+            color: var(--medium-gray);
+        }
+
+        .resources-section {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .resource-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .resource-card ul {
+            list-style: none;
+        }
+
+        .resource-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .resource-card li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-card a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-section {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 2rem;
+        }
+
+        .faq-item h4 {
+            cursor: pointer;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .faq-item h4:hover {
+            color: var(--accent-blue);
+        }
+
+        .faq-content {
+            display: none;
+            color: var(--medium-gray);
+            line-height: 1.8;
+        }
+
+        .faq-content.active {
+            display: block;
+        }
+
+        .cta-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,26,26,0.9));
+            color: white;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: 100%;
+                margin-left: 70px;
+                margin-right: 0;
+                text-align: left;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .timeline-marker {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <h1>ANGELA GARCIA</h1>
+            <p class="logo-subtitle">LONG ISLAND REAL ESTATE</p>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Search Homes</a></li>
+            <li><a href="buyers.html">Buyers</a></li>
+            <li><a href="sellers.html">Sellers</a></li>
+            <li><a href="communities.html">Communities</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- HAMBURGER MENU -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="guide-hero">
+    <div class="container">
+        <h1>Buyer's Guide</h1>
+        <p>Everything you need to know about buying a home on Long Island</p>
+    </div>
+</section>
+
+<!-- BUYING PROCESS -->
+<section class="process-timeline">
+    <div class="container">
+        <h2>The Buying Process</h2>
+        <p class="section-subtitle">5 steps to finding your perfect home</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>1. Get Pre-Approved</h3>
+                    <p>Connect with a mortgage lender to determine your budget and get pre-approved. This shows sellers you're serious.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>2. Search & Tour</h3>
+                    <p>Browse available homes on Long Island. Angela will arrange showings and provide market insights for each property.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>3. Make an Offer</h3>
+                    <p>Found the one? Angela will help you craft a competitive offer based on market conditions and comparable sales.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>4. Inspection & Appraisal</h3>
+                    <p>Have the home professionally inspected and appraised. Your lender will verify the property value and condition.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>5. Close & Move In</h3>
+                    <p>Final walkthrough, sign documents, receive keys. Congratulations—you're now a Long Island homeowner!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources-section">
+    <div class="container">
+        <h2>Buyer Resources</h2>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <h3>Mortgage Resources</h3>
+                <ul>
+                    <li><a href="#">Mortgage Calculator</a></li>
+                    <li><a href="#">Loan Programs Guide</a></li>
+                    <li><a href="#">Down Payment Assistance</a></li>
+                    <li><a href="#">Pre-Approval Process</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h3>Neighborhood Guides</h3>
+                <ul>
+                    <li><a href="communities/huntington.html">Huntington</a></li>
+                    <li><a href="communities/northport.html">Northport</a></li>
+                    <li><a href="communities/smithtown.html">Smithtown</a></li>
+                    <li><a href="communities/babylon.html">Babylon</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h3>Home Buying Tips</h3>
+                <ul>
+                    <li><a href="#">First-Time Buyer Tips</a></li>
+                    <li><a href="#">Home Inspection Checklist</a></li>
+                    <li><a href="#">What's Included in Closing</a></li>
+                    <li><a href="#">Common Buyer Mistakes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4 onclick="toggleFaq(this)">How much home can I afford?</h4>
+            <div class="faq-content">
+                <p>Generally, lenders will approve you for a mortgage of 2.5 to 3 times your annual income. Your actual budget depends on your down payment, credit score, debt-to-income ratio, and current interest rates. Angela recommends getting pre-approved first to understand your true buying power.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4 onclick="toggleFaq(this)">What's the difference between pre-qualification and pre-approval?</h4>
+            <div class="faq-content">
+                <p>Pre-qualification is a quick estimate based on self-reported information. Pre-approval is a detailed review by a lender that verifies your income, credit, and assets. Pre-approval is what sellers take seriously when reviewing offers.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4 onclick="toggleFaq(this)">How long does the home buying process take?</h4>
+            <div class="faq-content">
+                <p>From offer to closing typically takes 30-45 days. However, this depends on how quickly inspections, appraisals, and underwriting are completed. Some deals close faster, others take longer.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4 onclick="toggleFaq(this)">What should I look for in a home inspection?</h4>
+            <div class="faq-content">
+                <p>A professional inspector will examine the structure, roof, foundation, electrical systems, plumbing, HVAC, and more. Angela recommends attending the inspection to ask questions and understand the condition of the property.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4 onclick="toggleFaq(this)">What are typical closing costs?</h4>
+            <div class="faq-content">
+                <p>Closing costs typically range from 2-5% of the purchase price and include loan origination fees, appraisal, title insurance, taxes, and attorney fees. Angela will provide a detailed estimate after you make an offer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Start Your Search?</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem;">Schedule a consultation with Angela to discuss your home buying goals.</p>
+        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search Homes</a></li>
+                    <li><a href="buyers.html">Buyers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: (516) 555-0123</p>
+                <p>Email: angela@angelagarciarealtor.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angela Garcia Real Estate. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+function toggleFaq(element) {
+    const content = element.nextElementSibling;
+    content.classList.toggle('active');
+    element.style.color = content.classList.contains('active') ? 'var(--accent-blue)' : 'var(--charcoal)';
+}
+
+// Intersection Observer for animated checkpoints
+function initializeTimelineAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+    
+    timelineItems.forEach(item => observer.observe(item));
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', initializeTimelineAnimations);
+
+// Mobile Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburger) {
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+}
+</script>
+
+</body>
+</html>

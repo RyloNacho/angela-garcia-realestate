@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMMUNITY_NAME | Angela Garcia Real Estate | Long Island</title>
+    <meta name="description" content="Discover COMMUNITY_NAME on Long Island. Learn about schools, lifestyle, real estate market, and homes for sale in COMMUNITY_NAME.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .community-hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(26,26,26,0.6)), url('../media/COMMUNITY_IMAGE.jpg') center/cover;
+            padding: 6rem 2rem;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .community-hero h1 {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .community-section {
+            padding: 4rem 2rem;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .community-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .community-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .lifestyle-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lifestyle-card {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .lifestyle-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .lifestyle-card p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        .schools-section {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .school-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .school-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .school-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .school-type {
+            display: inline-block;
+            font-size: 0.8rem;
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+        }
+
+        .restaurants-section {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        .dining-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .dining-card {
+            border: 1px solid #e0e0e0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .dining-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .dining-card h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .dining-type {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .parks-section {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .parks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .park-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(26,26,26,0.9));
+            color: white;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .community-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <h1>ANGELA GARCIA</h1>
+            <p class="logo-subtitle">LONG ISLAND REAL ESTATE</p>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../buyers.html">Buyers</a></li>
+            <li><a href="../sellers.html">Sellers</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="community-hero">
+    <div class="container">
+        <h1>COMMUNITY_NAME</h1>
+        <p>Discover why families love living in COMMUNITY_NAME</p>
+    </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="community-section">
+    <div class="container">
+        <div class="community-grid">
+            <div>
+                <h2>About COMMUNITY_NAME</h2>
+                <p>COMMUNITY_DESCRIPTION</p>
+                <p style="margin-top: 1rem;">With a strong sense of community, excellent schools, and convenient access to shopping, dining, and recreation, COMMUNITY_NAME is an ideal location for families, professionals, and retirees alike.</p>
+            </div>
+            <div class="community-image">
+                <img src="../media/COMMUNITY_IMAGE.jpg" alt="COMMUNITY_NAME, Long Island">
+            </div>
+        </div>
+
+        <div class="lifestyle-cards">
+            <div class="lifestyle-card">
+                <h3>🏡 Neighborhoods</h3>
+                <p>Well-maintained residential areas with tree-lined streets and established communities</p>
+            </div>
+            <div class="lifestyle-card">
+                <h3>🎓 Schools</h3>
+                <p>Highly-rated school district serving families of all ages</p>
+            </div>
+            <div class="lifestyle-card">
+                <h3>🍽️ Dining</h3>
+                <p>Diverse restaurant and entertainment options for every taste</p>
+            </div>
+            <div class="lifestyle-card">
+                <h3>🏃 Recreation</h3>
+                <p>Parks, trails, and community activities for outdoor enthusiasts</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCHOOLS -->
+<section class="schools-section">
+    <div class="container">
+        <h2>Schools</h2>
+        <p class="section-subtitle">Quality education in COMMUNITY_NAME</p>
+
+        <div class="school-list">
+            <div class="school-card">
+                <span class="school-type">Elementary</span>
+                <h4>SCHOOL_NAME 1</h4>
+                <p>SCHOOL_DETAILS</p>
+            </div>
+            <div class="school-card">
+                <span class="school-type">Middle School</span>
+                <h4>SCHOOL_NAME 2</h4>
+                <p>SCHOOL_DETAILS</p>
+            </div>
+            <div class="school-card">
+                <span class="school-type">High School</span>
+                <h4>SCHOOL_NAME 3</h4>
+                <p>SCHOOL_DETAILS</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESTAURANTS & DINING -->
+<section class="restaurants-section">
+    <div class="container">
+        <h2>Dining & Entertainment</h2>
+        <p class="section-subtitle">Great restaurants and entertainment options</p>
+
+        <div class="dining-grid">
+            <div class="dining-card">
+                <h4>RESTAURANT_NAME 1</h4>
+                <p class="dining-type">Cuisine Type</p>
+                <p>Brief description of restaurant and what makes it special</p>
+            </div>
+            <div class="dining-card">
+                <h4>RESTAURANT_NAME 2</h4>
+                <p class="dining-type">Cuisine Type</p>
+                <p>Brief description of restaurant and what makes it special</p>
+            </div>
+            <div class="dining-card">
+                <h4>RESTAURANT_NAME 3</h4>
+                <p class="dining-type">Cuisine Type</p>
+                <p>Brief description of restaurant and what makes it special</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARKS & RECREATION -->
+<section class="parks-section">
+    <div class="container">
+        <h2>Parks & Recreation</h2>
+        <p class="section-subtitle">Outdoor activities and community spaces</p>
+
+        <div class="parks-grid">
+            <div class="park-card">
+                <h3>PARK_NAME 1</h3>
+                <p>PARK_DESCRIPTION</p>
+            </div>
+            <div class="park-card">
+                <h3>PARK_NAME 2</h3>
+                <p>PARK_DESCRIPTION</p>
+            </div>
+            <div class="park-card">
+                <h3>PARK_NAME 3</h3>
+                <p>PARK_DESCRIPTION</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MARKET INSIGHTS -->
+<section class="community-section">
+    <div class="container">
+        <h2>Real Estate Market in COMMUNITY_NAME</h2>
+        <p class="section-subtitle">Current market conditions and insights</p>
+
+        <div class="market-stats">
+            <div class="stat">
+                <div class="stat-value">$AVERAGE_PRICE</div>
+                <div class="stat-label">Average Sale Price</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">DAYS</div>
+                <div class="stat-label">Days On Market</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">COUNT%</div>
+                <div class="stat-label">Homes Sold YoY</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">INVENTORY</div>
+                <div class="stat-label">Current Inventory</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED LISTINGS -->
+<section class="community-section" style="background-color: var(--light-gray);">
+    <div class="container">
+        <h2>Homes for Sale in COMMUNITY_NAME</h2>
+        <p class="section-subtitle">Currently available properties</p>
+
+        <div class="listings-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <!-- Listings pulled from IDX -->
+            <p style="grid-column: 1/-1; text-align: center; color: #999;">IDX listings coming soon</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="../search.html" class="btn btn-primary">View All Listings in COMMUNITY_NAME</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Interested in COMMUNITY_NAME?</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.1rem;">Schedule a tour or get more information about this neighborhood.</p>
+        <a href="../contact.html" class="btn btn-primary">Contact Angela</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                    <li><a href="../buyers.html">Buyers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Phone: (516) 555-0123</p>
+                <p>Email: angela@angelagarciarealtor.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Angela Garcia Real Estate. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
