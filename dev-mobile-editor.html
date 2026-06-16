@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Editor - Angela Garcia Real Estate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            gap: 0;
+        }
+
+        .editor-panel {
+            flex: 1;
+            background: #1e1e1e;
+            overflow: auto;
+            padding: 20px;
+            border-right: 2px solid #333;
+        }
+
+        .editor-header {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .page-selector {
+            margin-bottom: 20px;
+        }
+
+        .page-selector select {
+            width: 100%;
+            padding: 8px 12px;
+            background: #2d2d2d;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            height: 60%;
+            padding: 12px;
+            background: #2d2d2d;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 12px;
+            line-height: 1.5;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px;
+            background: #1e3a8a;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #153063;
+        }
+
+        button.secondary {
+            background: #444;
+        }
+
+        button.secondary:hover {
+            background: #555;
+        }
+
+        .preview-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #0a0a0a;
+            padding: 20px;
+        }
+
+        .preview-header {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .mobile-frame {
+            flex: 1;
+            background: #000;
+            border: 12px solid #222;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .mobile-notch {
+            height: 28px;
+            background: #000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .mobile-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        .mobile-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .info-box {
+            background: #2d2d2d;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 15px;
+            line-height: 1.5;
+            color: #aaa;
+        }
+
+        .info-box strong {
+            color: #fff;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .editor-panel {
+                flex: 0 0 40%;
+                border-right: none;
+                border-bottom: 2px solid #333;
+            }
+
+            .preview-panel {
+                flex: 0 0 60%;
+            }
+
+            textarea {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- CODE EDITOR PANEL -->
+        <div class="editor-panel">
+            <div class="editor-header">📝 HTML Editor</div>
+            
+            <div class="page-selector">
+                <select id="pageSelect">
+                    <option value="index">Home (index.html)</option>
+                    <option value="buyers">Buyers Guide</option>
+                    <option value="sellers">Sellers Guide</option>
+                    <option value="search">Search</option>
+                    <option value="about">About</option>
+                    <option value="contact">Contact</option>
+                </select>
+            </div>
+
+            <textarea id="codeEditor" placeholder="HTML code will load here..."></textarea>
+
+            <div class="button-group">
+                <button onclick="loadPage()">📂 Load Page</button>
+                <button class="secondary" onclick="copyCode()">📋 Copy</button>
+            </div>
+
+            <div class="info-box">
+                <strong>✏️ How to use:</strong><br>
+                1. Select a page<br>
+                2. Edit HTML in the textarea<br>
+                3. Send changes to Rylo<br>
+                4. Preview updates in real-time
+            </div>
+        </div>
+
+        <!-- MOBILE PREVIEW PANEL -->
+        <div class="preview-panel">
+            <div class="preview-header">📱 Mobile Preview (375px)</div>
+            
+            <div class="mobile-frame">
+                <div class="mobile-notch">9:41</div>
+                <div class="mobile-content">
+                    <iframe id="previewFrame" src="index.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const codeEditor = document.getElementById('codeEditor');
+        const pageSelect = document.getElementById('pageSelect');
+        const previewFrame = document.getElementById('previewFrame');
+
+        // Load HTML from selected page
+        async function loadPage() {
+            const pageMap = {
+                'index': 'index.html',
+                'buyers': 'buyers.html',
+                'sellers': 'sellers.html',
+                'search': 'search.html',
+                'about': 'about.html',
+                'contact': 'contact.html'
+            };
+
+            const filename = pageMap[pageSelect.value];
+            
+            try {
+                const response = await fetch(filename);
+                const html = await response.text();
+                codeEditor.value = html;
+                previewFrame.src = filename;
+                console.log(`Loaded ${filename}`);
+            } catch (error) {
+                codeEditor.value = `Error loading ${filename}: ${error.message}`;
+            }
+        }
+
+        // Copy code to clipboard
+        function copyCode() {
+            codeEditor.select();
+            document.execCommand('copy');
+            alert('HTML copied to clipboard!');
+        }
+
+        // Load initial page
+        window.addEventListener('load', loadPage);
+
+        // Update preview when page selection changes
+        pageSelect.addEventListener('change', loadPage);
+
+        // Auto-resize textarea
+        function autoResizeTextarea() {
+            codeEditor.style.height = 'auto';
+            codeEditor.style.height = Math.min(codeEditor.scrollHeight, 600) + 'px';
+        }
+
+        codeEditor.addEventListener('input', autoResizeTextarea);
+    </script>
+</body>
+</html>

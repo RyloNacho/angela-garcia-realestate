@@ -310,7 +310,8 @@ body.menu-open {
     align-items: flex-end;
     justify-content: flex-start;
     overflow: hidden;
-    margin-top: 54px;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .hero-video {
@@ -1056,10 +1057,18 @@ body.menu-open {
     }
 
     .navbar {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 1000;
         background: #ffffff;
+        padding-top: env(safe-area-inset-top);
+    }
+
+    .nav-container {
+        padding: 0.7rem 1.2rem;
+        max-height: 56px;
     }
 
     .logo,
@@ -1191,16 +1200,43 @@ body.menu-open {
         transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* Fix mobile spacing under nav */
+    /* Fix mobile spacing under nav - remove excessive gaps */
     .hero {
-        margin-top: 56px;
+        margin-top: 0;
         padding-top: 0;
-        height: calc(100vh - 56px);
+        height: 100vh;
+        padding-top: env(safe-area-inset-top);
     }
 
     main,
-    .page-hero {
+    .page-hero,
+    .guide-hero,
+    .about-hero {
+        margin-top: 0;
         padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    .guide-hero,
+    .about-hero {
+        padding: 2rem 1.2rem !important;
+        margin-top: 0 !important;
+    }
+
+    /* Remove all default top spacing on mobile */
+    .realtor-intro,
+    .featured-listings,
+    .buy-or-sell,
+    .communities,
+    .why-work,
+    .testimonials,
+    .market-insights,
+    .process-timeline,
+    .resources-section,
+    .contact-section,
+    .about-section {
+        margin-top: 0 !important;
+        padding-top: 2rem !important;
     }
     
     /* Keep existing mobile tweaks */
@@ -1368,6 +1404,26 @@ body.menu-open {
 }
 
 @media (max-width: 480px) {
+    /* Remove ALL top spacing on small mobile */
+    body {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .hero,
+    main,
+    .page-hero,
+    .guide-hero,
+    .about-hero {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .guide-hero,
+    .about-hero {
+        padding: 1.5rem 1.2rem !important;
+        margin-top: 0 !important;
+    }
 
     .nav-menu li {
         border-bottom: 1px solid rgba(0, 0, 0, 0.04);
